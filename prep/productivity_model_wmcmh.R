@@ -24,15 +24,17 @@
                             na = "NULL")
     services7 <- read_excel("data/raw/Services/20160121BethanyS_TBDSolutionsProductivtyStudy_2016Jan2ThruJan15.xlsx",
                             na = "NULL")
+    services8 <- read_excel("data/raw/Services/20160203BethanyS_TBDSolutionsProductivtyStudy_2016Jan16ThruJan29.xlsx",
+                            na = "NULL")
     
   # Jenky, duct-taped read-in process...
     colnames(services3) <- colnames(services2) # add colnames to new file
     services <- services %>% select(-Cltsrv_num) # Cltsrv_num only in first, remove
     services <- rbind(services, services2, services3,
                       services4,services5, services6,
-                      services7)
+                      services7,services8)
     
-    rm(services2);rm(services3);rm(services4);rm(services5);rm(services6);rm(services7)
+    rm(services2);rm(services3);rm(services4);rm(services5);rm(services6);rm(services7);rm(services8)
     
   # Read map of codes 
     codemap <- read_excel("data/raw/ServiceCodeToCPTHCPCmap.xlsx")
@@ -173,7 +175,7 @@
       employee$clin_pct <- car::recode(employee$title, 
                                             "'Administrator 105' = 0;
                                             'Applied Behavioral Psych' = 0.70;
-                                            'C&EPS'= 0.84;
+                                            'C&EPS'= 0.78;
                                             'Care Manager'= 0.42;
                                             'CSA'= 0.70;
                                             'Deputy Director 109' = 0;
@@ -181,7 +183,7 @@
                                             'Director 116'= 0.50;
                                             'Intern'= NA;
                                             'Medical Assistant'= 0;
-                                            'MHC'= 0.88;
+                                            'MHC'= 0.77;
                                             'Psychiatrist 116'= 0.88;
                                             'Service Entry Specialist'= 0.30;
                                             'Staff Nurse (RN)'= 0.42;
