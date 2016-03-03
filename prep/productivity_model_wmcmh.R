@@ -10,33 +10,9 @@
     library(RCurl)
     
   # Read service data
-    services <- read_excel("data/raw/Services/20150514_BethanyS_TBDSolutionsProductivityStudy_ServiceExtract.xlsx", 
-                           na = "NULL")
-    services2 <- read_excel("data/raw/Services/20150923_BethanyS_TBDSolutionsProductivityStudy_ServiceExtractMaythruAugust.xlsx", 
-                           na = "NULL")
-    services3 <- read_excel("data/raw/Services/20151117_BethanyS_servicesSept-Oct2015.xlsx", 
-                            col_names = FALSE, na = "NULL")
-    services4 <- read_excel("data/raw/Services/20151201_BethanyS_servicesNov1Thru20_2015.xlsx", 
-                            col_names = T, na = "NULL")
-    services5 <- read_excel("data/raw/Services/20151209BethanyS_TBDSolutionsProductivtyStudy_Nov21ThruDec4.xlsx",
-                            na = "NULL")
-    services6 <- read_excel("data/raw/Services/20160105BethanyS_TBDSolutionsProductivtyStudy_Dec5ThruDec31.xlsx",
-                            na = "NULL")
-    services7 <- read_excel("data/raw/Services/20160121BethanyS_TBDSolutionsProductivtyStudy_2016Jan2ThruJan15.xlsx",
-                            na = "NULL")
-    services8 <- read_excel("data/raw/Services/20160203BethanyS_TBDSolutionsProductivtyStudy_2016Jan16ThruJan29.xlsx",
-                            na = "NULL")
-    services9 <- read_excel("data/raw/Services/20160223BethanyS_TBDSolutionsProductivtyStudy_2016Jan30ThruFeb12.xlsx",
-                            na = "NULL")
+    source("prep/function_combineServices.R")
     
-  # Jenky, duct-taped read-in process...
-    colnames(services3) <- colnames(services2) # add colnames to new file
-    services <- services %>% select(-Cltsrv_num) # Cltsrv_num only in first, remove
-    services <- rbind(services, services2, services3,
-                      services4,services5, services6,
-                      services7,services8, services9)
-    
-    rm(services2);rm(services3);rm(services4);rm(services5);rm(services6);rm(services7);rm(services8);rm(services9)
+    services <- combineServices(directory = "data/raw/Services")
     
   # Read map of codes 
     codemap <- read_excel("data/raw/ServiceCodeToCPTHCPCmap.xlsx")
