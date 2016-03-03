@@ -26,15 +26,17 @@
                             na = "NULL")
     services8 <- read_excel("data/raw/Services/20160203BethanyS_TBDSolutionsProductivtyStudy_2016Jan16ThruJan29.xlsx",
                             na = "NULL")
+    services9 <- read_excel("data/raw/Services/20160223BethanyS_TBDSolutionsProductivtyStudy_2016Jan30ThruFeb12.xlsx",
+                            na = "NULL")
     
   # Jenky, duct-taped read-in process...
     colnames(services3) <- colnames(services2) # add colnames to new file
     services <- services %>% select(-Cltsrv_num) # Cltsrv_num only in first, remove
     services <- rbind(services, services2, services3,
                       services4,services5, services6,
-                      services7,services8)
+                      services7,services8, services9)
     
-    rm(services2);rm(services3);rm(services4);rm(services5);rm(services6);rm(services7);rm(services8)
+    rm(services2);rm(services3);rm(services4);rm(services5);rm(services6);rm(services7);rm(services8);rm(services9)
     
   # Read map of codes 
     codemap <- read_excel("data/raw/ServiceCodeToCPTHCPCmap.xlsx")
@@ -44,11 +46,13 @@
     employee2 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_09-25-15.xlsx")
     employee3 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_11-17-15.xlsx")
     employee4 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_01-7-16.xlsx")
-  
+    employee5 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_02-23-16.xlsx")
+    
   # Clean differences
     names(employee2)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee3)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee4)[7] <- "ProviderNum"   # Rename unmatching col name
+    names(employee5)[7] <- "ProviderNum"   # Rename unmatching col name
     employee3 <- employee3 %>% select(1:14)
     
     source("prep/function_combineEmployee.R")
@@ -56,8 +60,9 @@
     employee <- combineEmployee(employee1, employee2)
     employee <- combineEmployee(employee, employee3)
     employee <- combineEmployee(employee, employee4)
+    employee <- combineEmployee(employee, employee5)
   
-    rm(employee1);rm(employee2);rm(employee3);rm(employee4)
+    rm(employee1);rm(employee2);rm(employee3);rm(employee4);rm(employee5)
     
   # Read payroll files showing # hours for which employees were paid
     
