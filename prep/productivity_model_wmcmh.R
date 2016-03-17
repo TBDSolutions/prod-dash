@@ -676,20 +676,15 @@ per_month <-
 # Expected revenue would account 
   # Re = Ht * Service Value
 
-# In a capitated
-
 # < expected time = bad
 # > expected time = bad for budget
 # > "reasonable hours" = potential for burnout
 
-# Questions:
-# If a clinician is paid more, do we have higher productivity expectations? Bethany: "No"
 # Are the Hours per pay period in the employee table based on budgeted amounts 
   # that a position was hired for?  If so, would "Hours Paid" in excess of this
   # be a concern for managing productivity relative to budget
 # Differentiate between site based and community based staff positions?
 # Calculate need / caseload
-
 
 # Incorporating various quality measures, such as the requirement of completed 
 # treatment plans, directly into the productivity system via data calculations 
