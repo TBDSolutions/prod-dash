@@ -50,6 +50,7 @@
       select(employee_number:effective_date,pay_type,hours:wages,Division:gl_program) 
     
   # Get standard cost data from CMS PPS
+    # https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/PhysicianFeeSched/PFS-Relative-Value-Files-Items/RVU16A.html?DLPage=1&DLEntries=10&DLSort=0&DLSortDir=descending
     rvu <- read.csv("data/raw/RVU/2016/PPRRVU16_V1110_V2.csv", skip = 9)
     gcpi <- read.csv("data/raw/RVU/2016/CY2016_GPCIs.csv")
 
