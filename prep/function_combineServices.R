@@ -13,5 +13,3 @@ combineServices <- function(directory) {
   
   return(df)
 }
-
-

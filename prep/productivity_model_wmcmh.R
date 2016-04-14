@@ -23,12 +23,15 @@
     employee3 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_11-17-15.xlsx")
     employee4 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_01-7-16.xlsx")
     employee5 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_02-23-16.xlsx")
+    employee6 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_04-13-16.xlsx")
     
   # Clean differences
     names(employee2)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee3)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee4)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee5)[7] <- "ProviderNum"   # Rename unmatching col name
+    names(employee6)[7] <- "ProviderNum"   # Rename unmatching col name
+    
     employee3 <- employee3 %>% select(1:14)
     
     source("prep/function_combineEmployee.R")
