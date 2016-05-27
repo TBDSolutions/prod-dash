@@ -24,6 +24,7 @@
     employee4 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_01-7-16.xlsx")
     employee5 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_02-23-16.xlsx")
     employee6 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_04-13-16.xlsx")
+    employee7 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_05-11-16.xlsx")
     
   # Clean differences
     names(employee2)[7] <- "ProviderNum"   # Rename unmatching col name
@@ -31,6 +32,7 @@
     names(employee4)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee5)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee6)[7] <- "ProviderNum"   # Rename unmatching col name
+    names(employee7)[7] <- "ProviderNum"   # Rename unmatching col name
     
     employee3 <- employee3 %>% select(1:14)
     
@@ -40,8 +42,12 @@
     employee <- combineEmployee(employee, employee3)
     employee <- combineEmployee(employee, employee4)
     employee <- combineEmployee(employee, employee5)
+    employee <- combineEmployee(employee, employee6)
+    employee <- combineEmployee(employee, employee7)
+    
   
-    rm(employee1);rm(employee2);rm(employee3);rm(employee4);rm(employee5)
+    rm(employee1);rm(employee2);rm(employee3);rm(employee4)
+    rm(employee5);rm(employee6);rm(employee7)
     
   # Read payroll files showing # hours for which employees were paid
     
