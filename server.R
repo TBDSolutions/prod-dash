@@ -599,14 +599,7 @@ shinyServer(
                "In the most recent month, you spent ",srv_needed$prod_raw,
                "% of total hours in direct service.")
       } else if (srv_remain > 0 & ds >= CP) {
-        paste0("To maintain your current performance, continue to average at least ",
-               srv_needed$SrvPerDay, " direct service hours per day. ",
-               "This adds up to ",srv_needed$SrvNeeded," per week, and ",
-               srv_needed$SrvPerMo," per month, and requires that ",
-               round(srv_needed$dsNeeded * 100, digits = 1),
-               "% of the hours you work be spent in direct service.",
-               "In the most recent month, you spent ",srv_needed$prod_raw,
-               "% of total hours in direct service.")
+        paste0("Keep up the good work!")
         # direct services hours per day/week/month
       } else if (srv_remain <= 0 & ds < CP) {
         paste0("In order to meet minimum standards, you will need to provide at least ",
