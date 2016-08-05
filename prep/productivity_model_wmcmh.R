@@ -25,6 +25,7 @@
     employee5 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_02-23-16.xlsx")
     employee6 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_04-13-16.xlsx")
     employee7 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_05-11-16.xlsx")
+    employee8 <- read_excel("data/raw/Employee/StaffJobTitlesWageRates_07-29-16.xlsx")
     
   # Clean differences
     names(employee2)[7] <- "ProviderNum"   # Rename unmatching col name
@@ -33,6 +34,7 @@
     names(employee5)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee6)[7] <- "ProviderNum"   # Rename unmatching col name
     names(employee7)[7] <- "ProviderNum"   # Rename unmatching col name
+    names(employee8)[7] <- "ProviderNum"   # Rename unmatching col name
     
     employee3 <- employee3 %>% select(1:14)
     
@@ -44,10 +46,11 @@
     employee <- combineEmployee(employee, employee5)
     employee <- combineEmployee(employee, employee6)
     employee <- combineEmployee(employee, employee7)
+    employee <- combineEmployee(employee, employee8)
     
   
     rm(employee1);rm(employee2);rm(employee3);rm(employee4)
-    rm(employee5);rm(employee6);rm(employee7)
+    rm(employee5);rm(employee6);rm(employee7);rm(employee8)
     
   # Read payroll files showing # hours for which employees were paid
     
@@ -396,8 +399,8 @@
                            digits = 2),
                ServiceCode = as.factor(ServiceCode))  %>%
         filter(HCPCS != "90832" 
-               & HCPCS != "90834") %>%
-        distinct(ServiceCode) # Only distinct codes to avoid duplication of svs on join
+               & HCPCS != "90834") #%>%
+        #distinct(ServiceCode) # Only distinct codes to avoid duplication of svs on join
   
     write.csv(codemap, "data/codemap.csv")
       
