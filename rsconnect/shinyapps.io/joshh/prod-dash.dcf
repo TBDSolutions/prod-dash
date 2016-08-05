@@ -2,6 +2,6 @@ name: prod-dash
 account: joshh
 server: shinyapps.io
 appId: 69404
-bundleId: 463954
+bundleId: 524366
 url: https://joshh.shinyapps.io/prod-dash/
-when: 1464316280.56954
+when: 1470365293.53885
