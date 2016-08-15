@@ -2,6 +2,6 @@ name: prod-dash
 account: tbdsolutions
 server: shinyapps.io
 appId: 69405
-bundleId: 524369
+bundleId: 531896
 url: https://tbdsolutions.shinyapps.io/prod-dash/
-when: 1470365608.79316
+when: 1471231644.34648
