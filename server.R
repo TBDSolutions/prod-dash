@@ -516,7 +516,7 @@ shinyServer(
                        & staffname == input$emp) %>%
                 select(prod_raw)),
             "% of your time providing direct services.")
-      # the value of the services that you provided wsa x % of your cost to the organization
+      # the value of the services that you provided was x % of your cost to the organization
     })
     
     output$need_emp <- renderText({

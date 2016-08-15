@@ -399,8 +399,8 @@
                            digits = 2),
                ServiceCode = as.factor(ServiceCode))  %>%
         filter(HCPCS != "90832" 
-               & HCPCS != "90834") #%>%
-        #distinct(ServiceCode) # Only distinct codes to avoid duplication of svs on join
+               & HCPCS != "90834") %>%
+        distinct(ServiceCode, .keep_all = TRUE) # Only distinct codes to avoid duplication of svs on join
   
     write.csv(codemap, "data/codemap.csv")
       
@@ -592,7 +592,7 @@ per_month <-
              Sch,Hrs,Srv,Adm,CP,Prt,Pay,Fri,Ovr,Exp,Unt,Rvu,
              prod_raw,prod_pct,valu_cst,
              RvuPerSrv,SrvNeeded,CPNeeded,SrvtoGoal) %>% 
-      filter(pay = 0
+      filter(Pay == 0
              | Srv > Hrs)
   
     
