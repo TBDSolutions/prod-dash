@@ -159,7 +159,7 @@ shinyServer(
         droplevels %>%
         gather(Measure, Value, prod_raw,valu_cst) %>%
         arrange(title,Week_Dt,Measure) %>%
-        mutate(Measure = recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
+        mutate(Measure = car::recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
                                           'valu_cst' = 'Value (VPU)'")) %>%
         filter(Week_Dt == input$week) %>% 
         dimple(x = c("title","Measure"),
@@ -194,7 +194,7 @@ shinyServer(
         droplevels %>%
         gather(Measure, Value, prod_raw,valu_cst) %>%
         arrange(staffname,Week_Dt,Measure) %>%
-        mutate(Measure = recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
+        mutate(Measure = car::recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
                                           'valu_cst' = 'Value (VPU)'")) %>%
         filter(title == input$var
                & Week_Dt == input$week) %>% 
@@ -359,7 +359,7 @@ shinyServer(
         droplevels %>%
         gather(Measure, Value, prod_raw, valu_cst) %>%
         arrange(cc_desc,Week_Dt,Measure) %>%
-        mutate(Measure = recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
+        mutate(Measure = car::recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
                                 'valu_cst' = 'Value (VPU)'")) %>%
         filter(Week_Dt == input$week_cc) %>% 
         dimple(x = c("cc_desc","Measure"),
@@ -391,7 +391,7 @@ shinyServer(
         droplevels %>%
         gather(Measure, Value, prod_raw, valu_cst) %>%
         arrange(staffname,Week_Dt,Measure) %>%
-        mutate(Measure = recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
+        mutate(Measure = car::recode(Measure, "'prod_raw' = 'Direct as % Total Hrs';
                                 'valu_cst' = 'Value (VPU)'")) %>%
         filter(cc_desc == input$cc
                & Week_Dt == input$week_cc) %>% 
